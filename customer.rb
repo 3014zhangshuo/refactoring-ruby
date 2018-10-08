@@ -11,15 +11,26 @@ class Customer
   end
 
   def statement
-    result = "Rental Record for #{@name}\n"
+    result = "<h1>Rental Record for <em>#{@name}</em><h1><p>\n"
 
     @rentals.each do |element|
       result += "\t" + element.movie.title + "\t" + element.charge.to_s + "\n"
     end
 
-    # add footer line
     result += "Amount owed is #{total_charge}\n"
     result += "You earned #{total_frequent_renter_points} frequent renter points"
+    result
+  end
+
+  def html_statement
+    result = "Rental Record for #{@name}\n"
+
+    @rentals.each do |element|
+      result += "\t" + element.movie.title + "\t" + element.charge.to_s + "<br>\n"
+    end
+
+    result += "<p>You owe is <em>#{total_charge}</em></p>\n"
+    result += "On this rental you earned <em>#{total_frequent_renter_points}</em> frequent renter points</p>"
     result
   end
 
