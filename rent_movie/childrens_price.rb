@@ -1,3 +1,5 @@
+require_relative 'default_renter_points'
+
 class ChildrensPrice
   include DefaultRenterPonits
 
