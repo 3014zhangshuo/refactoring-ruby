@@ -7,11 +7,11 @@ class Customer
   end
 
   def add_rental(arg)
-    @rental << arg
+    @rentals << arg
   end
 
   def statement
-    result = "<h1>Rental Record for <em>#{@name}</em><h1><p>\n"
+    result = "Rental Record for #{@name}\n"
 
     @rentals.each do |element|
       result += "\t" + element.movie.title + "\t" + element.charge.to_s + "\n"
@@ -23,7 +23,7 @@ class Customer
   end
 
   def html_statement
-    result = "Rental Record for #{@name}\n"
+    result = "<h1>Rental Record for <em>#{@name}</em><h1><p>\n"
 
     @rentals.each do |element|
       result += "\t" + element.movie.title + "\t" + element.charge.to_s + "<br>\n"
